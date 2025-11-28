@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade Cafeteria</title>
+</head>
+<body>
+    <style>
+        * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        list-style: none;
+        text-decoration: none;
+        border: none;
+        font-family: 'Times New Roman', Times, serif
+      }
+
+       main section.pg1, .pg2, .pg3, .pg4 {
+        background-color:rgb(249, 214, 39);
+        padding: 5vw 10vw 5vw 10vw;
+        color: white;
+        text-align: center;
+        display: none;
+       }
+
+         main section.pg1 button, section.pg2 button, section.pg3
+button, section.pg4 button {
+            background-color: green;
+            border-radius: 15px;
+            color: white;
+            padding: 3vw 6vw 3vw 6vw;
+            border: 1px solid black;
+        }
+
+        main section.pg2 ul, section.pg3 ul {
+            display: flex;
+            width: 50%;
+
+        }
+
+         main section.pg2 ul li img, section.pg3 ul li img {
+            margin: 3vw 0 3vw 0;
+         }
+
+          main section.pg2 ul li p, section.pg3 ul li p {
+            margin:0 0 3vw 0;
+         }
+        main section.pg1 {
+            display: block;
+
+        }
+
+        main section.pg1 h1 {
+            font-size: 1.5rem;
+            margin: 2.5vw 0 2.5vw 0;
+        }
+
+        main section.pg1 p {
+            margin: 2.5vw 0 2.5vw 0;
+        }
+
+          main section.pg1 p span {
+            color: rgb(225, 118, 18);
+          }
+
+         main section.pg1 div {
+            margin: 0 0 2.5vw 0;
+         }
+
+
+
+    </style>
+
+
+    <main>
+        <section class="pg1">
+            <h1>Bem-vindo ao Café na Veia!</h1>
+            <p>Seu lugar favorito para <span>cafés.</span></p>
+           <div>
+             <img src="#" alt="Logo Café">
+           </div>
+            <button type="button" onclick="passar('.pg1', '.pg2')">Menu</button>
+        </section>
+
+        <section class="pg2">
+            <h1>Escolha seu café</h1>
+
+            <select nome="selecao" id="selecao">
+
+            <option value="preto">Café Preto</option>
+            <option value="cappuccino">Cappuccino</option>
+            <option value="caramelo">caramelo</option>
+            <option value="mocha">Mocha</option>
+            <option value="expresso">Expresso</option>
+
+        </select>
+        <button type=button onclick="passar('.pg2', '.pg3')"  id="confirmar">Selecionar</button>
+            
+        </section>
+
+        <section class="pg3">
+            <h1>Agora, Escolha seu acompanhamento</h1>
+             <select nome="selecao2" id="selecao2">
+
+            <option value="paodequeijo">pao de queijo</option>
+            <option value="bolo">bolo</option>
+            <option value="chocolate">chocolate</option>
+            <option value="biscoito">biscoito</option>
+            <option value="crepe">Crepe</option>
+
+        </select>
+
+        <button type=button onclick="passar('.pg3', '.pg4')" id="confirmar2">Selecionar</button>
+
+        </section>
+
+        <section class="pg4">
+            <h1>Seu Pedido foi realizado!</h1>
+            <img src="#" alt="Café escolhido">
+            <p>Acompanhamento: </p>
+            <p>Obrigado!</p>
+
+        </section>
+
+    </main>
+
+    <script>
+        function passar(atual, proxima) {
+            document.querySelector(atual).style.display = 'none'
+            document.querySelector(proxima).style.display = 'block' 
+     
+        }
+
+      
+   </script>
+</body>
+
+</html>
