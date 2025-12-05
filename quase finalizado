@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade Cafeteria</title>
+</head>
+<body>
+    
+    <style>
+        * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        list-style: none;
+        text-decoration: none;
+        border: none;
+        font-family: 'Times New Roman', Times, serif
+      }
+
+       main section.pg1, main section.pg2, main section.pg3, main section.pg4 {
+        background-color:rgb(249, 214, 39);
+        padding: 5vw 10vw 5vw 10vw;
+        color: white;
+        text-align: center;
+        display: none;
+       }
+
+         main section.pg1 button, main section.pg2 button, main section.pg3 button{
+            background-color: green;
+            border-radius: 15px;
+            color: white;
+            padding: 1.5vw 3vw 1.5vw 3vw;
+            border: 1px solid black;
+        }
+
+        main section.pg1 {
+            display: block;
+        }
+
+        main section.pg1 h1 {
+            font-size: 2.5rem;
+            margin: 2.5vw 0 2.5vw 0;
+        }
+
+        main section.pg1 p {
+            margin: 2.5vw 0 2.5vw 0;
+            font-size: 3rem;
+        }
+
+          main section.pg1 span, section.pg2 span, section.pg3 span, section.pg4 span {
+            color: rgb(225, 118, 18);
+            font-weight: bold;
+            font-size: 3rem;
+          }
+
+         main section.pg1 img {
+            margin: 0 0 2.5vw 0;
+            max-width: 50%;
+
+         }
+
+         main section.pg2 ul {
+            display: grid;
+            max-width: 50%;
+            margin: 0 auto;
+        
+           
+         }
+
+    
+
+         main section.pg2 select, main section.pg3 select {
+            border-radius: 15px;
+            padding: 1vw 2vw 1vw 2vw;
+            border: 1px solid black;
+            margin: 0 2.5vw 0 0;
+         }
+
+          main section.pg2 h2, main section.pg3 h2, main section.pg4 h2 {
+            margin: 0 0 3vw 0;
+         }
+
+         main section.pg4 p {
+            font-size: 2rem;
+         }
+
+
+
+
+
+    </style>
+
+
+    <main>
+        <section class="pg1">
+            <h1>Bem-vindo ao <span>Café</span> na Veia!</h1>
+            <p>Seu lugar favorito para <span>cafés.</span></p>
+           <div>
+             <img src="imagens/xicara-de-cafe.png" alt="Logo Café">
+           </div>
+            <button type="button" id="irmenu">Menu</button>
+        </section>
+
+        <section class="pg2">
+            <h2>Por Favor, escolha seu <span>Cafezinho!</span></h2>
+                <ul>
+                    <li>
+                        <h3>Café Preto</h3>
+                        <img src="imagens/cafe-preto.jpg" alt="Café Preto">
+                    </li>
+
+                    <li>
+                        <h3>Cappuccino</h3>
+                        <img src="imagens/does-a-cappuccino-have-caffeine.jpg" alt="Cappuccino">
+                    </li>
+
+                    <li>
+                        <h3>Caramelo</h3>
+                        <img src="imagens/caramelo-coffee-600x600.jpg" alt="Caramelo">
+                    </li>
+
+                    <li>
+                        <h3>Moca</h3>
+                        <img src="imagens/moka-menta-1-1-768x512.jpg" alt="Moca">
+                    </li>
+
+                    <li>
+                        <h3>Expresso</h3>
+                        <img src="imagens/cafe-expresso-ou-cafe-espresso-vem-descobrir-agora-1024x576.jpg" alt="Expresso">
+                    </li>
+                </ul>
+            <form action="#">
+           <select name="cafes" id="cafes">
+
+            <option value="Café Preto">Café Preto</option>
+            <option value="Cappuccino">Cappuccino</option>
+            <option value="Caramelo">Caramelo</option>
+            <option value="Moca">Moca</option>
+            <option value="Expresso">Expresso</option>
+
+        </select>
+    
+        <button type="button" id="confirmar">Selecionar</button>
+        </form>
+
+        </section>
+
+        <section class="pg3">
+            <h2>Agora, Escolha sua <span>Porção</span> predileta para dar um gosto a mais!</h2>
+            <form action="#">
+
+                <select name="porcao" id="porcoes">
+                    
+                    <option value="Pão de Queijo">Pão de Queijo</option>
+                    <option value="Bolo">Bolo</option>
+                    <option value="Chocolate">Chocolate</option>
+                    <option value="Biscoito">Biscoito</option>
+                    <option value="Crepe">Crepe</option>
+                    
+                </select>
+                    <button type="button" id="confirmar2">Selecionar</button>                
+            </form>            
+        </section>
+
+        <section class="pg4">
+            <h1>Seu <span>Pedido</span> foi realizado!</h1>
+            <img src="#" alt="Café escolhido.">
+            <p id="resultado"></p>
+            <p><span>Obrigado!</span></p>
+
+        </section>
+
+    </main>
+
+    <script>
+
+        let cafe = document.querySelector('#cafes');
+        let confirmar = document.querySelector('#confirmar');
+        let porcao = document.querySelector('#porcoes')
+        let confirmar2 = document.querySelector('#confirmar2')
+        let resultado = document.querySelector('#resultado')
+        let escolhacafe = ""
+        let escolhaporcao = ""
+ 
+        function passar(atual, proxima) {
+    document.querySelector(atual).style.display = 'none';
+    document.querySelector(proxima).style.display = 'block';
+}
+
+       let irmenu = document.querySelector('#irmenu')
+       irmenu.addEventListener('click', () => {
+        passar('.pg1', '.pg2');
+       })
+
+        confirmar.addEventListener('click', () => {
+        escolhacafe = cafe.value;
+        console.log(escolhacafe)
+        passar('.pg2', '.pg3')
+        })
+
+        confirmar2.addEventListener('click', () => {
+        escolhaporcao = porcao.value;
+        console.log(escolhaporcao)
+        passar('.pg3', '.pg4')
+    
+        resultado.innerHTML = `${escolhacafe} e ${escolhaporcao}.`;
+        
+        })
+
+       
+
+   </script>
+</body>
+
+</html>
